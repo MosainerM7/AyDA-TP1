@@ -1,0 +1,149 @@
+Nombre: Mosainer Martín David
+Trabajo Práctico 1:
+
+Ejercicio 1:
+
+a- Respuesta: Calcular la suma de los primeros n números naturales
+
+-Métrica de tamaño natural: El valor de entrada, 𝑛
+
+-Operación básica: La suma de números.
+
+-Variabilidad en el conteo de la operación básica: 
+No, el recuento es fijo, ya que la suma se calcula con la fórmula S = n(n+1)/2.
+Esto quiere decir que no depende de los valores individuales de cada número.
+
+Ejercicio 2: Calcular n!
+b- Respuesta: 
+
+-Métrica de tamaño natural: El valor de entrada, 𝑛
+
+-Operación básica: Multiplicación de números.
+
+-Variabilidad en el conteo de la operación básica: 
+No, el número de multiplicaciones es fijo para cada n: para calcular n!, se realizan n−1 multiplicaciones.
+
+
+Ejercicio 3:  Encontrar el elemento más grande en una lista de n números
+c- Respuesta:
+-Métrica de tamaño natural: El valor de entrada, 𝑛
+
+-Operación básica: Comparación de números.
+
+-Variabilidad en el conteo de la operación básica: No, el número de comparaciones es siempre 
+n−1, ya que el algoritmo recorre toda la lista para comparar cada elemento.
+
+
+Ejercicio 4: Algoritmo de Euclides (para encontrar el máximo común divisor)
+d- Respuesta:
+-Métrica de tamaño natural: El valor de entrada, 𝑛
+
+-Operación básica: División de números.
+
+-Variabilidad en el conteo de la operación básica: Sí,
+ el número de divisiones depende de los valores específicos de a y b. En el peor caso, 
+ el número de pasos será O(log(min(a,b))).
+
+Ejercicio 5:  Tamiz de Eratóstenes (para encontrar todos los números primos menores o iguales a 𝑛)
+e- Respuesta:
+-Métrica de tamaño natural: El valor de entrada, 𝑛
+
+-Operación básica: La eliminación (marcar un número que no sea primo).
+
+-Variabilidad en el conteo de la operación básica: Sí, 
+el número de eliminaciones varía dependiendo del valor de n y de los múltiplos específicos. 
+En el peor caso, el algoritmo realiza aproximadamente O(nloglog(n)) operaciones al marcar los múltiplos.
+
+
+Ejercicio 2: Diseñar un algoritmo para calcular [raiz N] para cualquier entero positivo. Además de la asignación y la comparación,
+ el algoritmo solo puede utilizar las cuatro operaciones aritméticas básicas.
+
+Respuesta:
+
+el algoritmo sería el siguiente:
+
+Inicialización: Empieza con 𝑖=1.
+
+Iteración: Mientras que 𝑖^2 <= n.
+ Cálcula 𝑖^2.
+ incrementa 𝑖 en 1.
+
+ Resultado: Cuando 𝑖^2 supera a n, se detiene. El valor deseado de [√(n) es i - 1].
+
+Un ejemplo con n = 2:
+-Comienza con i = 1
+
+-Calcula 𝑖^2 = 1^2 = 1.
+
+-1 < 2, por lo que incrementa i a 2.
+Ahora mismo es i = 2.
+Entonces calcula 𝑖^2 = 2^2 = 4.
+
+4 > 2, asi que nos detenemos.
+El valor de (√2) es i - 2 = 2 - 1 = 1.
+
+
+Pseudocódigo.
+
+Algoritmo ParaCalcularRaiz(n):
+    Input: A positive integer n
+    Output: An integer representing ⌊√n⌋
+
+    i ← 1
+    while i * i ≤ n do
+        i ← i + 1
+    end while
+    return i - 1
+
+
+Ejercicio 3: Tiempo para contar los granos cuando se duplican en cada cuadrado
+Respuesta:
+
+a-Cada cuadrado del tablero contiene el doble de granos que el anterior, 
+por lo que el número de granos en el cuadrado k es 2^k-1. Para encontrar el total de granos en el tablero.
+sumamos los granos en cada uno de los 64 cuadrados.
+Total de granos= 1+2+4+8+... + 2^63.
+Esta es una suma geométrica con razón 2 y 64 términos.
+ La fórmula de la suma geométrica es: Sn = a * (r^n-1)/(r-1)
+
+donde 
+𝑎=1 (primer término), 
+𝑟=2 (razón) y 𝑛=64 (número de términos). Entonces, 
+Total de granos = Sn = 1 * ((2^64)-1)/(2-1) = 2^64 -1
+
+Ahora, vamos a calcular el tiempo necesario para contar cada grano, 
+suponiendo que se cuenta 1 grano por segundo: (Agregado un supuesto).
+
+
+Tiempo = 2^64 -1 Segundos.
+
+Un apróximado sería : 18,446,744,073,709,551,615 granos Entonces, 
+el tiempo en segundos sería aproximadamente: 18,446,744,073,709,551,615 segundos.
+En años sería un apróximado de 584,542 millones de años.
+
+
+
+b: Tiempo si el número de granos aumenta en 2 en cada cuadrado
+En este caso, el número de granos en el cuadrado k es 1+2⋅(𝑘−1)
+Así, el total de granos en los 64 cuadrados es la suma de una progresión aritmética donde:
+Primer término, 
+𝑎=a=1
+Último término, 
+𝑙=1+2⋅(64−1)=127
+Número de términos, 
+𝑛=64
+La suma de una progresión aritmética es: Sn = (n/2) * (a+l)
+
+Entonces: Total de granos = (64/2) * (1+127) = 32 * 128 = 4096
+
+Para contar estos granos a razón de 1 grano por segundo:
+
+4096 / 60*60 = 1.14 horas apróximadamente.
+
+Respuesta: Se necesitaría aproximadamente 1.14 horas para contar todos los granos en este caso.
+
+
+
+
+
+
